@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<title>Pavel Shevtsov</title>
+		<style>
+			body {
+				margin: 0;
+				padding: 0;
+			}
+			.header {
+				background-color: black;
+				color: white;
+				padding: 1rem;
+			}
+			.main {
+				background-color: white;
+				color: black;
+				padding: 1rem;
+			}
+		</style>
+	</head>
+	<body>
+		<header class="header">
+			<h1>What is the difference between value?: T and value: T | undefined?</h1>
+		</header>
+		<main class="main">
+			<p>You may seen the code like this:</p>
+			<pre><code class="language-typescript">function foo(value?: string)</code></pre>
+			<p>You may also seen the code like this:</p>
+			<pre><code class="language-typescript">function foo(value: string | undefined)</code></pre>
+			<p>Or even:</p>
+			<pre><code class="language-typescript">function foo(value?: string | undefined)</code></pre>
+			<p>So what is the differnece between theese?</p>
+			<p>
+				When you define an argument as optional (with question mark) you are telling the function will work just
+				fine without any argument at all.<br />The argument is just an option and will not break the code if
+				none provided.
+			</p>
+			<p>
+				I has written code with with optional arguments wihout actually meaning that they are optional.
+				Sometimes you allow to pass undefined just because you know that this function will be called later with
+				an actual value.
+			</p>
+			<p>
+				It especially common in React world, where hooks are called multiple times and the first time a
+				component renders some of it's props may not have value yet due to some fetching:
+			</p>
+			<pre><code>const Component = ({ value }: { value?: string }) => {
+	if (value === undefined) {
+		return &lt;div>Loading&lt;/div>;
+	}
+	return &lt;div>{value}&lt;/div>;
+}</code></pre>
+			<p>
+				Because of the value being optional a person may never pass it, so we are getting stuck in loading state
+				forever. I did.
+			</p>
+			<p>
+				This is more of a communication / documentation thing than an actual coding problem. Because from the
+				prespective of a JS runtime all of the examples are the same.
+			</p>
+			<p>
+				So here you go: use question mark only if you want to communicate that the argument is really a
+				non-mandatory option and the code will work just fine without it. In all other cases state explicitly
+				allowed types of an argument. And never do this thing:
+			</p>
+			<pre><code>function foo(value?: string | undefined)</code></pre>
+		</main>
+		<link rel="prefetch" href="/" />
+	</body>
+</html>
