@@ -1,0 +1,65 @@
+---
+import BaseStyle from '../layouts/base.styles.astro'
+let pages = await Object.values(import.meta.glob('../pages/**/*.{md,mdx}', { eager: true }))
+pages = pages.filter(
+  (page) => !page.frontmatter?.navExclude
+);
+pages.sort(sortPages);
+
+function sortPages(a, b) {
+  const dateA = new Date(a.frontmatter?.date || '1970-01-01');
+  const dateB = new Date(b.frontmatter?.date || '1970-01-01');
+
+  return dateB.getTime() - dateA.getTime(); // Sort in descending order (newest first)
+}
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<meta name="generator" content={Astro.generator}>
+		<title>Pavel Shevtsov</title>
+{pages.map((page) => (
+        <link rel="prefetch" href={page.url}>
+      ))}
+			<BaseStyle />
+<style is:global>
+	body {
+		min-height: 100dvh;
+	}
+	h1 {
+		margin: 0;
+		padding: 0;
+		padding-top: 5rem;
+	}
+	body, header, main {
+		display: flex;
+		flex-wrap: nowrap;
+		flex-direction: column;
+		align-items: center;
+	}
+	header {
+		text-align: center;
+	}
+	
+</style>
+	</head>
+	<body>
+		<header>
+		<h1>Pavel Shevtsov</h1>
+		<p>Coding and stuff
+		<br />
+		<a href="https://homepages.inf.ed.ac.uk/rni/papers/realprg.html">Quiche eater</a>
+		</p>
+		</header>
+		<main style="margin-top:3rem;">
+			{pages.map((page) => (
+        <a href={page.url}>
+          {page.frontmatter?.navTitle || page.frontmatter?.title}
+        </a>
+      ))}
+			</main>
+		<slot>
+	</body>
+</html>

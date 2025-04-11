@@ -1,0 +1,69 @@
+---
+import BaseStyle from './base.styles.astro'
+interface Props {
+  title: string;
+}
+
+let { title, frontmatter } = Astro.props;
+title = title || frontmatter?.title
+const date = new Date(frontmatter?.date || Date.now())
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <title>{title}</title>
+	<BaseStyle />
+<style is:global>
+	body {
+		min-height: 100vh;
+		padding: 0 2rem;
+	}
+	body, header, main {
+		display: flex;
+		flex-direction: column;
+	}
+	body {
+		align-items: center;
+	}
+	main, header {
+		max-width: 85ch;
+	}
+	h1 {
+		text-align: center;
+	}
+	header {
+		padding-top: 2rem;
+		padding-bottom: 2rem;
+	}
+	main > * {
+		max-width: calc(100dvw - 4rem) !important;
+	}
+	main {
+		padding-bottom: 8rem;
+	}
+	footer {
+		padding-bottom: 2rem;
+	}
+	.astro-code {
+		padding: 0.5rem;
+	}
+</style>
+</head>
+<body>
+  <header>
+		<a href="/">Main</a>
+    <h1>{title}</h1>
+  </header>
+  <main>
+			<slot />
+  </main>
+  <footer>
+		<small>&copy; {date.getFullYear()} Pavel Shevtsov</small><br>
+		<small>If you want to train an AI on this site you have to have my explicit permission</small>
+  </footer>
+</body>
+</html>
