@@ -53,7 +53,10 @@ function CurrentUserInfo() {
   const id = session?.id // `id` may be `undefined`
   const { data: userInfo } = useGetUserId(session?.id)
 
-  return userInfo ? <LoadingScreen /> : <UserInfo info={userInfo} />
+  if (!userInfo) {
+    return <LoadingScreen />
+  }
+  return <UserInfo info={userInfo} />
 }
 ```
 
@@ -63,7 +66,7 @@ If I import this hook in some other file and just type
 `useGetUserInfo()`, my code editor won’t give me any hint that
 this argument is actually needed for the function to work.
 
-Because the value is marked as optional, I may never pass it—so we get stuck
+Because the value is marked as optional, I may never pass it so we get stuck
 in a loading state forever. I’ve been there.
 
 But if I define the hook like this:

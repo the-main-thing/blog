@@ -1,6 +1,7 @@
 {
-	"useTabs": false,
-	"tabWidth": 2,
-	"semi": false,
-	"singleQuote": true
+  "useTabs": false,
+  "tabWidth": 2,
+  "semi": false,
+  "singleQuote": true,
+  "maxLineLength": 65
 }

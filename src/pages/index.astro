@@ -24,44 +24,13 @@ function sortPages(a, b) {
 <link rel="prefetch" href={page.url} type="text/html">
       ))}
 			<BaseStyle />
-<style is:global>
-	body {
-		min-height: 100dvh;
-	}
-	h1 {
-		margin: 0;
-		padding: 0;
-		padding-top: 5rem;
-	}
-	body, header, main {
-		display: flex;
-		flex-wrap: nowrap;
-		flex-direction: column;
-		align-items: center;
-	}
-	header {
-		text-align: center;
-	}
-
-	h1 {
-		position: relative;
-	}
-
-	header > p > a:visited {
-		color: inherit;
-	}
-
-</style>
 	</head>
 	<body>
-		<header>
+		<header class="flex flex-col items-center text-center">
 			<h1>Pavel Shevtsov</h1>
-		<p>Coding and stuff
-		<br />
+			<p class="text-center mb-2">Coding and stuff</p>
 		<a href="https://homepages.inf.ed.ac.uk/rni/papers/realprg.html">Quiche eater</a>
-		<br />
 		<small style="color: rgb(180, 196, 180);">neovim btw</small>
-		</p>
 		</header>
 		<main style="margin-top:3rem;">
 			{pages.map((page) => (

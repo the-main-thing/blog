@@ -1,0 +1,62 @@
+@import 'tailwindcss';
+
+* {
+  @apply text-slate-300 hyphens-auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+li {
+  @apply text-pretty;
+}
+
+p {
+  @apply py-2;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+p > code {
+	@apply bg-slate-950 text-green-300 font-mono break-keep hyphens-none;
+}
+
+h1,
+h2,
+h3 {
+  @apply font-bold text-slate-200 my-4;
+}
+
+h1 {
+  @apply text-3xl sm:text-4xl;
+}
+
+h2 {
+  @apply text-xl sm:text-2xl;
+}
+
+h3 {
+  @apply text-lg sm:text-xl;
+}
+
+a {
+  @apply text-blue-300 hover:text-blue-400 hover:underline;
+}
+a:visited {
+  @apply text-blue-100;
+}
+
+html,
+body {
+  @apply bg-slate-900;
+}
+
+.astro-code {
+  @apply p-2 mb-2 mt-1 rounded;
+}
