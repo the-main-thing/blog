@@ -33,11 +33,15 @@ function sortPages(a, b) {
 		<small style="color: rgb(180, 196, 180);">neovim btw</small>
 		</header>
 		<main style="margin-top:3rem;">
+			<ul class="flex flex-col items-center gap-2">
 			{pages.map((page) => (
-        <a href={page.url}>
-          {page.frontmatter?.navTitle || page.frontmatter?.title}
-        </a>
+				<li>
+					<a href={page.url}>
+					 {page.frontmatter?.navTitle || page.frontmatter?.title}
+					</a>
+				</li>
       ))}
+			</ul>
 			</main>
 		<slot>
 	</body>
