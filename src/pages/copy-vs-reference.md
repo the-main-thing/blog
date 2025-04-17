@@ -14,13 +14,10 @@ I made a synthetic test. I have to note that synthetic tests aren’t really a g
 
 The test was:
 
-Create arrays of inputs and an array for structs
-
-Fill the inputs with random strings
-
-Iterate over the inputs and create a struct for each input
-
-Save the array of structs into a JSON file
+1. Create arrays of inputs and an array for structs
+2. Fill the inputs with random strings
+3. Iterate over the inputs and create a struct for each input
+4. Save the array of structs into a JSON file
 
 This way, I prevent the compiler from erasing the loops, since we're actually using them.
 
