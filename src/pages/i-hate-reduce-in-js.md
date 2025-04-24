@@ -45,7 +45,7 @@ on the crappy reduce thing.
 
 1. WTF is `acc`? I know it's short for "accumulator", but WHY? Name it after
    what you're actually building: "listOfIDs".
-2. Performance. Performance. What could cost about O(n) for memory
+2. Performance. What could cost about O(n) for memory
    and compute now costs "I’m not good enough at math to calculate exponentials".
 
 Actually I can live with the `acc` thing since I've
