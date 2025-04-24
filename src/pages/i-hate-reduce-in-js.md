@@ -78,10 +78,8 @@ Assuming `typeof item.id === 'nubmer'` we are wasting on each iteration:
 <thead>
 <tr>
   <th class="p-2">Index</th>
-  <th class="p-2">Memory in bytes</th>
-  <th class="p-2">Sum in bytes</th>
-  <th class="p-2">Iterations</th>
-  <th class="p-2">Sum in iterations</th>
+  <th class="p-2">Memory in bytes (sum)</th>
+  <th class="p-2">Iterations (sum)</th>
 </tr>
 </thead>
 <tbody class="align-middle text-center">
@@ -89,36 +87,26 @@ Assuming `typeof item.id === 'nubmer'` we are wasting on each iteration:
   <td class="border-t border-gray-700">0</td>
   <td class="border-t border-gray-700">0</td>
   <td class="border-t border-gray-700">0</td>
-  <td class="border-t border-gray-700">0</td>
-  <td class="border-t border-gray-700">0</td>
 </tr>
 <tr>
   <td class="border-t border-gray-700">1</td>
-  <td class="border-t border-gray-700">8</td>
-  <td class="border-t border-gray-700">8</td>
-  <td class="border-t border-gray-700">1</td>
-  <td class="border-t border-gray-700">1</td>
+  <td class="border-t border-gray-700">8 (8)</td>
+  <td class="border-t border-gray-700">1 (1)</td>
 </tr>
 <tr>
   <td class="border-t border-gray-700">2</td>
-  <td class="border-t border-gray-700">16</td>
-  <td class="border-t border-gray-700">24</td>
-  <td class="border-t border-gray-700">2</td>
-  <td class="border-t border-gray-700">3</td>
+  <td class="border-t border-gray-700">16 (24)</td>
+  <td class="border-t border-gray-700">2 (3)</td>
 </tr>
 <tr>
   <td class="border-t border-gray-700">3</td>
-  <td class="border-t border-gray-700">24</td>
-  <td class="border-t border-gray-700">48</td>
-  <td class="border-t border-gray-700">3</td>
-  <td class="border-t border-gray-700">6</td>
+  <td class="border-t border-gray-700">24 (48)</td>
+  <td class="border-t border-gray-700">3 (6)</td>
 </tr>
 <tr>
   <td class="border-t border-gray-700">4</td>
-  <td class="border-t border-gray-700">32</td>
-  <td class="border-t border-gray-700">80</td>
-  <td class="border-t border-gray-700">4</td>
-  <td class="border-t border-gray-700">10</td>
+  <td class="border-t border-gray-700">32 (80)</td>
+  <td class="border-t border-gray-700">4 (10)</td>
 </tr>
 </tbody>
 </table>
