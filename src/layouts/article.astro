@@ -32,13 +32,10 @@ const date = new Date(frontmatter?.date || Date.now())
 		max-width: 95ch;
 	}
 	main > * {
-		max-width: min(calc(100dvw - 4rem), 95ch);
+		max-width: min(calc(100dvw - 4rem), calc(95ch - 4rem));
 	}
 	p, ul, li {
 		max-width: 58ch;
-	}
-	pre {
-		max-width: 75ch;
 	}
 	main {
 		padding-bottom: 8rem;
