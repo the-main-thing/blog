@@ -21,27 +21,38 @@ const date = new Date(frontmatter?.date || Date.now())
 	body {
 		padding: 2rem;
 	}
-	body, header, main {
+	body, header {
 		display: flex;
 		flex-direction: column;
 	}
 	body {
 		align-items: center;
 	}
-	main, header {
+	header, main {
 		max-width: 95ch;
 	}
 	main > * {
-		max-width: calc(100dvw - 4rem);
+		max-width: min(calc(100dvw - 4rem), 95ch);
 	}
-	p {
+	p, ul, li {
 		max-width: 58ch;
+	}
+	pre {
+		max-width: 75ch;
 	}
 	main {
 		padding-bottom: 8rem;
 	}
 	footer {
 		padding-bottom: 2rem;
+	}
+	ol {
+		list-style-type: decimal;
+		padding-left: 2rem;
+	}
+	ul {
+		list-style-type: disc;
+		padding-left: 2rem;
 	}
 </style>
 </head>
