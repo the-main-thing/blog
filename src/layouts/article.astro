@@ -29,13 +29,11 @@ const date = new Date(frontmatter?.date || Date.now())
 		align-items: center;
 	}
 	header, main {
-		max-width: 95ch;
+		width: min(calc(100dvw - 4rem), calc(95ch - 4rem));
 	}
-	main > * {
+	article {
 		max-width: min(calc(100dvw - 4rem), calc(95ch - 4rem));
-	}
-	p, ul, li {
-		width: min(58ch, 100%);
+		min-width: 30%;
 	}
 	main {
 		padding-bottom: 8rem;
@@ -57,6 +55,7 @@ const date = new Date(frontmatter?.date || Date.now())
 		list-style-type: disc;
 		padding-left: 2rem;
 	}
+	
 </style>
 </head>
 <body>
@@ -66,8 +65,8 @@ const date = new Date(frontmatter?.date || Date.now())
   <header>
     <h1 class="text-center">{title}</h1>
   </header>
-  <main class="flex flex-col items-center">
-		<article class="flex flex-col">
+  <main class="flex flex-col w-fit items-center">
+		<article class="flex flex-col w-fit mx-auto">
 			<slot />
 		</article>
   </main>
