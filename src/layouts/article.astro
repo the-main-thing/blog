@@ -2,10 +2,12 @@
 import BaseStyle from './base.styles.astro'
 interface Props {
   title: string;
+	description?: string;
 }
 
-let { title, frontmatter } = Astro.props;
+let { title, frontmatter, description = '' } = Astro.props;
 title = title || frontmatter?.title
+description = `"${description || frontmatter?.description || 'Learn from by blog now for free!'}"`
 const date = new Date(frontmatter?.date || Date.now())
 ---
 
@@ -16,6 +18,7 @@ const date = new Date(frontmatter?.date || Date.now())
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <title>{title}</title>
+	<meta name="description" content={description}>
 	<BaseStyle />
 <style is:global>
 	body {

@@ -1,6 +1,7 @@
 ---
 layout: ../layouts/article.astro
 title: 'Maybe You Don’t Need SSR'
+description: 'There is some caveats to Server Side Rendering in frontend teams. Learn my story now for free!'
 date: 2025-06-14
 ---
 
