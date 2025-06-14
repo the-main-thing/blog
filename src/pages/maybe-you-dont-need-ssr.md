@@ -75,6 +75,8 @@ So, after convincing the CEO that SSR is the way forward, you decide:
 
 You complete the migration in under a week. The app feels faster. Your frontend team closes tasks faster. There are fewer bugs.
 
+Your zero users are now safe. Wow, what a relief!
+
 ### Conclusion
 
 I’ve seen this happen several times — a team decides to move to SSR. And most of the time, I see the same thing:
